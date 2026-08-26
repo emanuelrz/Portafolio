@@ -1369,7 +1369,6 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.2rem;
     cursor: pointer;
     z-index: 9999;
     backdrop-filter: blur(12px);
@@ -1379,6 +1378,13 @@ header {
     pointer-events: none;
     transform: translateY(15px);
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    outline: none;
+    padding: 0;
+}
+
+.scroll-top-btn svg {
+    display: block;
+    transition: transform 0.25s ease;
 }
 
 .scroll-top-btn.visible {
@@ -1394,6 +1400,10 @@ header {
     border-color: transparent;
     box-shadow: 0 0 20px var(--accent-cyan-glow);
     transform: translateY(-4px) scale(1.08);
+}
+
+.scroll-top-btn:hover svg {
+    transform: translateY(-2px);
 }
 
 /* ==========================================================================

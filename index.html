@@ -25,8 +25,8 @@
     <!-- Font Awesome (Iconos) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Archivo CSS -->
-    <link rel="stylesheet" href="style.css">
+    <!-- Archivo CSS (Versión para invalidar caché del navegador) -->
+    <link rel="stylesheet" href="style.css?v=2.0">
 </head>
 <body>
 
@@ -484,7 +484,9 @@
 
     <!-- Botón Flotante Volver Arriba -->
     <button id="scroll-to-top" class="scroll-top-btn" aria-label="Volver arriba" title="Volver arriba">
-        <i class="fas fa-arrow-up"></i>
+        <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
     </button>
 
     <!-- Footer -->
@@ -495,7 +497,7 @@
         </div>
     </footer>
 
-    <!-- Archivo JS -->
-    <script src="script.js"></script>
+    <!-- Archivo JS (Versión para invalidar caché del navegador) -->
+    <script src="script.js?v=2.0"></script>
 </body>
 </html>
