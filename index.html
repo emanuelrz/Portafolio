@@ -52,11 +52,11 @@
 
             <!-- Controles Adicionales (CV & Hamburguesa) -->
             <div class="nav-actions">
-                <!-- Botón CV en Navbar -->
-                <a href="assets/cv_emanuel_ramirez.pdf" download="CV_Emanuel_Julian_Ramirez.pdf" class="btn-nav-cv" title="Descargar Currículum Vitae en PDF">
-                    <i class="fas fa-file-arrow-down"></i>
-                    <span>CV</span>
-                </a>
+                <!-- Botón Ver CV en Navbar -->
+                <button type="button" class="btn-nav-cv js-social-link" data-url="assets/cv_emanuel_ramirez.pdf" title="Ver Currículum Vitae online">
+                    <i class="fas fa-file-lines"></i>
+                    <span>Ver CV</span>
+                </button>
 
                 <!-- Botón Menú Hamburguesa -->
                 <div class="nav-toggle" id="nav-toggle" aria-label="Abrir menú">
@@ -72,22 +72,26 @@
     <section id="inicio" class="hero-section">
         <div class="hero-container">
             <div class="hero-content">
-                <span class="welcome-text" data-i18n="hero.greeting">¡Hola! Mi nombre es</span>
+                <span class="welcome-text">¡Hola! Mi nombre es</span>
                 <h1 class="hero-title">Emanuel Julian Ramirez</h1>
-                <h2 class="hero-subtitle highlight" data-i18n="hero.subtitle">Técnico Universitario en Programación</h2>
-                <p class="hero-description" data-i18n="hero.description">
+                <h2 class="hero-subtitle highlight">Técnico Universitario en Programación</h2>
+                <p class="hero-description">
                     Técnico Universitario en Programación (UTN FRCU). Especializado en el desarrollo de software Cliente/Servidor, APIs y arquitecturas robustas bajo principios de código limpio y metodologías ágiles.
                 </p>
                 <div class="hero-actions">
-                    <a href="#proyectos" class="btn btn-primary" data-i18n="hero.btnProjects">Ver mis proyectos</a>
+                    <a href="#proyectos" class="btn btn-primary">Ver mis proyectos</a>
+                    
+                    <!-- Botón Ver CV Online -->
+                    <button type="button" class="btn btn-cv js-social-link" data-url="assets/cv_emanuel_ramirez.pdf" title="Ver CV online en el navegador">
+                        <i class="fas fa-eye"></i>
+                        <span>Ver CV</span>
+                    </button>
                     
                     <!-- Botón Descargar CV -->
-                    <a href="assets/cv_emanuel_ramirez.pdf" download="CV_Emanuel_Julian_Ramirez.pdf" class="btn btn-cv" id="hero-cv-btn">
-                        <i class="fas fa-file-arrow-down"></i>
-                        <span data-i18n="hero.btnCv">Descargar CV</span>
+                    <a href="assets/cv_emanuel_ramirez.pdf" download="CV_Emanuel_Julian_Ramirez.pdf" class="btn btn-outline" id="hero-cv-btn" title="Descargar CV en PDF">
+                        <i class="fas fa-download"></i>
+                        <span>Descargar CV</span>
                     </a>
-                    
-                    <a href="#contacto" class="btn btn-outline" data-i18n="hero.btnContact">Contáctame</a>
                 </div>
                 
                 <!-- Iconos de Redes Sociales (Sin URL preview en el navegador) -->
@@ -478,10 +482,9 @@
         </div>
     </section>
 
-    <!-- Botón Flotante de WhatsApp (Sin URL preview en navegador) -->
-    <button type="button" class="floating-whatsapp js-social-link" data-url="https://wa.me/543447402877?text=Hola%20Emanuel,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20contactarte" aria-label="Escríbeme por WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-        <span class="whatsapp-tooltip" data-i18n="contact.whatsappTooltip">¡Chatea conmigo por WhatsApp!</span>
+    <!-- Botón Flotante Volver Arriba -->
+    <button id="scroll-to-top" class="scroll-top-btn" aria-label="Volver arriba" title="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
     </button>
 
     <!-- Footer -->
