@@ -469,15 +469,21 @@ document.addEventListener('DOMContentLoaded', () => {
        ========================================================================== */
     const scrollTopBtn = document.getElementById('scroll-to-top');
     if (scrollTopBtn) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 350) {
+        const checkScroll = () => {
+            const yOffset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+            if (yOffset > 250) {
                 scrollTopBtn.classList.add('visible');
             } else {
                 scrollTopBtn.classList.remove('visible');
             }
-        });
+        };
 
-        scrollTopBtn.addEventListener('click', () => {
+        window.addEventListener('scroll', checkScroll, { passive: true });
+        window.addEventListener('resize', checkScroll);
+        checkScroll();
+
+        scrollTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
