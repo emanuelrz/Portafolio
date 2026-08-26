@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "nav.cv": "CV",
             
             "hero.greeting": "¡Hola! Mi nombre es",
-            "hero.rolePrefix": "Desarrollador",
+            "hero.subtitle": "Técnico Universitario en Programación",
             "hero.description": "Técnico Universitario en Programación (UTN FRCU). Especializado en el desarrollo de software Cliente/Servidor, APIs y arquitecturas robustas bajo principios de código limpio y metodologías ágiles.",
             "hero.btnProjects": "Ver mis proyectos",
             "hero.btnCv": "Descargar CV",
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "nav.cv": "Resume",
             
             "hero.greeting": "Hi! My name is",
-            "hero.rolePrefix": "",
+            "hero.subtitle": "University Degree in Computer Programming",
             "hero.description": "University Degree in Computer Programming (UTN FRCU). Specialized in Client/Server web development, Web APIs, and robust architectures built with clean code and agile methodologies.",
             "hero.btnProjects": "View My Projects",
             "hero.btnCv": "Download Resume",
@@ -245,45 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    /* ==========================================================================
-       5. EFECTO DE TEXTO TYPING ANIMADO (HERO)
-       ========================================================================== */
-    const textElement = document.querySelector('.text-typing');
-    if (textElement) {
-        let wordIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        let typeSpeed = 100;
 
-        function type() {
-            const rawWords = textElement.getAttribute('data-words');
-            const words = rawWords ? JSON.parse(rawWords) : ["Full-Stack", "Java & TypeScript", "React & Node.js"];
-            const currentWord = words[wordIndex % words.length];
-            
-            if (isDeleting) {
-                textElement.textContent = currentWord.substring(0, charIndex - 1);
-                charIndex--;
-                typeSpeed = 35;
-            } else {
-                textElement.textContent = currentWord.substring(0, charIndex + 1);
-                charIndex++;
-                typeSpeed = 90;
-            }
-
-            if (!isDeleting && charIndex === currentWord.length) {
-                typeSpeed = 2200;
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                wordIndex = (wordIndex + 1) % words.length;
-                typeSpeed = 400;
-            }
-
-            setTimeout(type, typeSpeed);
-        }
-
-        setTimeout(type, 800);
-    }
 
     /* ==========================================================================
        6. OBSERVADORES DE SCROLL (REVELAR ELEMENTOS & LINKS ACTIVOS)
