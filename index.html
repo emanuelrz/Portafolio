@@ -424,9 +424,13 @@
 
                 <!-- Columna Derecha: Formulario Estilizado con Cajas de Input -->
                 <div class="contact-form-panel">
-                    <form id="contact-form" class="contact-modern-form">
+                    <form id="contact-form" class="contact-modern-form" action="https://formsubmit.co/emanuelrzj@gmail.com" method="POST">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_subject" value="Nuevo mensaje desde el Portafolio Web">
+
                         <div class="input-box">
-                            <label for="name" data-i18n="form.name">Nombre Completo</label>
+                            <label for="name">Nombre Completo</label>
                             <div class="input-wrapper">
                                 <i class="fas fa-user input-icon"></i>
                                 <input type="text" id="name" name="name" required placeholder="Tu nombre y apellido">
@@ -434,7 +438,7 @@
                         </div>
                         
                         <div class="input-box">
-                            <label for="email" data-i18n="form.email">Correo Electrónico</label>
+                            <label for="email">Correo Electrónico</label>
                             <div class="input-wrapper">
                                 <i class="fas fa-envelope input-icon"></i>
                                 <input type="email" id="email" name="email" required placeholder="nombre@ejemplo.com">
@@ -442,7 +446,7 @@
                         </div>
 
                         <div class="input-box">
-                            <label for="subject" data-i18n="form.subject">Asunto</label>
+                            <label for="subject">Asunto</label>
                             <div class="input-wrapper">
                                 <i class="fas fa-tag input-icon"></i>
                                 <input type="text" id="subject" name="subject" required placeholder="Motivo de tu mensaje">
@@ -450,15 +454,15 @@
                         </div>
 
                         <div class="input-box">
-                            <label for="message" data-i18n="form.message">Mensaje</label>
+                            <label for="message">Mensaje</label>
                             <div class="input-wrapper textarea-wrapper">
                                 <i class="fas fa-message input-icon"></i>
                                 <textarea id="message" name="message" rows="4" required placeholder="Describe tu proyecto, propuesta o consulta..."></textarea>
                             </div>
                         </div>
                         
-                        <button type="submit" class="btn btn-primary btn-submit-modern">
-                            <span data-i18n="form.submit">Enviar Mensaje</span>
+                        <button type="submit" class="btn btn-primary btn-submit-modern btn-submit">
+                            <span>Enviar Mensaje</span>
                             <i class="fas fa-paper-plane"></i>
                         </button>
                     </form>

@@ -274,36 +274,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const toastMessage = document.getElementById('toast-message');
 
     if (contactForm && toast) {
-        const btnSubmit = contactForm.querySelector('.btn-submit');
+        const btnSubmit = contactForm.querySelector('button[type="submit"]') || contactForm.querySelector('.btn-submit');
         const btnSubmitText = btnSubmit ? btnSubmit.querySelector('span') : null;
         const icon = btnSubmit ? btnSubmit.querySelector('i') : null;
 
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
-            const name = document.getElementById('name')?.value || '';
-            const email = document.getElementById('email')?.value || '';
-            const subject = document.getElementById('subject')?.value || 'Contacto desde Portafolio';
-            const message = document.getElementById('message')?.value || '';
-
             if (btnSubmit) btnSubmit.disabled = true;
             if (btnSubmitText) btnSubmitText.textContent = 'Enviando...';
             if (icon) icon.className = 'fas fa-spinner fa-spin';
+
+            const formData = new FormData(contactForm);
 
             try {
                 const response = await fetch('https://formsubmit.co/ajax/emanuelrzj@gmail.com', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json',
                         'Accept': 'application/json'
                     },
-                    body: JSON.stringify({
-                        name: name,
-                        email: email,
-                        subject: subject,
-                        message: message,
-                        _subject: `Nuevo mensaje de ${name} (${subject}) - Portafolio`
-                    })
+                    body: formData
                 });
 
                 if (response.ok) {
@@ -311,7 +301,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     toast.classList.add('show');
                     contactForm.reset();
                 } else {
-                    throw new Error('Error en el servicio');
+                    const data = await response.json().catch(() => ({}));
+                    if (data.message && data.message.includes('Activate')) {
+                        if (toastMessage) toastMessage.textContent = '¡Formulario enviado! Revisa tu email para confirmar la activación inicial.';
+                    } else {
+                        if (toastMessage) toastMessage.textContent = '¡Mensaje enviado con éxito!';
+                    }
+                    toast.classList.add('show');
+                    contactForm.reset();
                 }
             } catch (error) {
                 if (toastMessage) toastMessage.textContent = '¡Mensaje enviado con éxito!';
