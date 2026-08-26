@@ -42,26 +42,19 @@
             </div>
             
             <ul class="nav-links" id="nav-links">
-                <li><a href="#inicio" class="active" data-i18n="nav.home">Inicio</a></li>
-                <li><a href="#sobre-mi" data-i18n="nav.about">Sobre Mí</a></li>
-                <li><a href="#habilidades" data-i18n="nav.skills">Habilidades</a></li>
-                <li><a href="#proyectos" data-i18n="nav.projects">Proyectos</a></li>
-                <li><a href="#experiencia" data-i18n="nav.experience">Experiencia</a></li>
-                <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
+                <li><a href="#inicio" class="active">Inicio</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#experiencia">Experiencia</a></li>
+                <li><a href="#contacto">Contacto</a></li>
             </ul>
 
-            <!-- Controles Adicionales (Idioma, CV) -->
+            <!-- Controles Adicionales (CV & Hamburguesa) -->
             <div class="nav-actions">
-                <!-- Selector de Idioma -->
-                <button id="lang-toggle" class="control-btn lang-btn" aria-label="Cambiar idioma" title="Cambiar idioma (ES / EN)">
-                    <i class="fas fa-globe"></i>
-                    <span id="lang-code">EN</span>
-                </button>
-
                 <!-- Botón CV en Navbar -->
                 <a href="assets/cv_emanuel_ramirez.pdf" download="CV_Emanuel_Julian_Ramirez.pdf" class="btn-nav-cv" title="Descargar Currículum Vitae en PDF">
                     <i class="fas fa-file-arrow-down"></i>
-                    <span data-i18n="nav.cv">CV</span>
+                    <span>CV</span>
                 </a>
 
                 <!-- Botón Menú Hamburguesa -->
@@ -104,7 +97,7 @@
                     <button type="button" class="social-btn js-social-link" data-url="https://www.linkedin.com/in/emanuelramirezdev" aria-label="LinkedIn" title="LinkedIn">
                         <i class="fab fa-linkedin-in"></i>
                     </button>
-                    <button type="button" class="social-btn js-social-link" data-url="https://wa.me/543447402877?text=Hola%20Emanuel,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20contactarte" aria-label="WhatsApp" title="WhatsApp (+54 3447 402877)">
+                    <button type="button" class="social-btn js-social-link" data-url="https://wa.me/543447402877?text=Hola%20Emanuel,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20contactarte" aria-label="WhatsApp" title="WhatsApp">
                         <i class="fab fa-whatsapp"></i>
                     </button>
                     <button type="button" class="social-btn js-social-link" data-mailto="emanuelrzj@gmail.com" aria-label="Correo Electrónico" title="Correo Electrónico">
@@ -121,65 +114,7 @@
         </div>
     </section>
 
-    <!-- Sección Sobre Mí -->
-    <section id="sobre-mi" class="section reveal">
-        <div class="container">
-            <h2 class="section-title" data-i18n="about.title">Sobre Mí</h2>
-            <div class="about-grid">
-                <div class="about-info">
-                    <h3 data-i18n="about.heading">Pasión por el código y la ingeniería de software</h3>
-                    <p data-i18n="about.p1">
-                        Soy <strong>Técnico Universitario en Programación</strong> graduado de la Universidad Tecnológica Nacional (UTN FRCU). Me especializo en la construcción de soluciones web completas, integrando interfaces dinámicas con backends escalables, seguros y bien estructurados.
-                    </p>
-                    <p data-i18n="about.p2">
-                        Cuento con experiencia en levantamiento de requerimientos, diseño de bases de datos relacionales, desarrollo de Web APIs y buenas prácticas de desarrollo como <strong>SOLID, Code Reviews y Scrum</strong>. Me apasiona el aprendizaje continuo y aportar valor en cada etapa del ciclo de vida del software.
-                    </p>
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <span class="stat-num">UTN</span>
-                            <span class="stat-text" data-i18n="about.stat1">Formación Universitaria Oficial</span>
-                        </div>
-                        <div class="stat-card">
-                            <span class="stat-num">+10</span>
-                            <span class="stat-text" data-i18n="about.stat2">Tecnologías & Frameworks</span>
-                        </div>
-                        <div class="stat-card">
-                            <span class="stat-num">100%</span>
-                            <span class="stat-text" data-i18n="about.stat3">Compromiso & Autogestión</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-terminal-container">
-                    <div class="terminal">
-                        <div class="terminal-header">
-                            <span class="dot red"></span>
-                            <span class="dot yellow"></span>
-                            <span class="dot green"></span>
-                            <span class="terminal-title">emanuel_ramirez.json</span>
-                        </div>
-                        <div class="terminal-body">
-                            <pre><code><span class="key">"nombre"</span>: <span class="val">"Emanuel Julian Ramirez"</span>,
-<span class="key">"titulo"</span>: <span class="val">"Técnico Universitario en Programación (UTN FRCU)"</span>,
-<span class="key">"ubicacion"</span>: <span class="val">"San José, Entre Ríos, Argentina"</span>,
-<span class="key">"lenguajes"</span>: [
-  <span class="val">"Java"</span>, <span class="val">"JavaScript"</span>, <span class="val">"TypeScript"</span>, <span class="val">"SQL"</span>, <span class="val">"Python"</span>
-],
-<span class="key">"frameworks"</span>: [
-  <span class="val">"React.js"</span>, <span class="val">"Node.js"</span>, <span class="val">"Express.js"</span>, <span class="val">"Bootstrap"</span>, <span class="val">"Web APIs"</span>
-],
-<span class="key">"base_datos"</span>: [
-  <span class="val">"PostgreSQL"</span>, <span class="val">"MySQL"</span>
-],
-<span class="key">"practicas"</span>: [
-  <span class="val">"Agile / Scrum"</span>, <span class="val">"SOLID"</span>, <span class="val">"Code Reviews"</span>, <span class="val">"Git / GitHub"</span>
-],
-<span class="key">"contacto"</span>: <span class="val">"emanuelrzj@gmail.com"</span></code></pre>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Sección de Habilidades (Etiquetas de Competencias Concretas) -->
     <section id="habilidades" class="section reveal">
@@ -466,7 +401,7 @@
                             <i class="fab fa-whatsapp contact-list-icon whatsapp-color"></i>
                             <div>
                                 <span class="contact-list-label">WhatsApp</span>
-                                <button type="button" class="contact-list-value js-social-link" data-url="https://wa.me/543447402877?text=Hola%20Emanuel,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20contactarte">+54 3447 402877</button>
+                                <button type="button" class="contact-list-value js-social-link" data-url="https://wa.me/543447402877?text=Hola%20Emanuel,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20contactarte">Enviar mensaje directo</button>
                             </div>
                         </li>
                         <li>

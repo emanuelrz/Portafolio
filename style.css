@@ -565,123 +565,7 @@ header {
 }
 
 
-/* ==========================================================================
-   SECCIÓN SOBRE MÍ
-   ========================================================================== */
-.about-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 4rem;
-    align-items: center;
-}
 
-.about-info h3 {
-    font-family: var(--font-heading);
-    font-size: 1.9rem;
-    font-weight: 700;
-    color: var(--text-highlight);
-    margin-bottom: 1.5rem;
-}
-
-.about-info p {
-    color: var(--text-muted);
-    margin-bottom: 1.5rem;
-    font-size: 1.05rem;
-}
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 2.5rem;
-}
-
-.stat-card {
-    background: var(--bg-card);
-    border: 1px solid var(--glass-border);
-    border-radius: 16px;
-    padding: 1.5rem;
-    text-align: center;
-    backdrop-filter: blur(12px) saturate(180%);
-    transition: var(--transition-fast);
-}
-
-.stat-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent-violet);
-    box-shadow: var(--card-glow), 0 0 15px var(--accent-violet-glow);
-}
-
-.stat-num {
-    display: block;
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    font-weight: 800;
-    background: var(--grad-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 0.5rem;
-}
-
-.stat-text {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-/* Terminal Mockup */
-.terminal {
-    background: #02040a;
-    border: 1px solid var(--glass-border);
-    border-radius: 14px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
-    overflow: hidden;
-    font-family: var(--font-mono);
-}
-
-.terminal-header {
-    background: #111827;
-    padding: 0.8rem 1.2rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    display: inline-block;
-}
-
-.dot.red { background: #ef4444; }
-.dot.yellow { background: #eab308; }
-.dot.green { background: #22c55e; }
-
-.terminal-title {
-    color: var(--text-muted);
-    font-size: 0.8rem;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.terminal-body {
-    padding: 1.5rem;
-    font-size: 0.88rem;
-    overflow-x: auto;
-    color: #e5e7eb;
-}
-
-.terminal-body pre {
-    white-space: pre-wrap;
-    word-break: break-all;
-}
-
-.terminal .key { color: var(--accent-cyan); }
-.terminal .val { color: var(--accent-violet); }
 
 /* ==========================================================================
    SECCIÓN HABILIDADES (ETIQUETAS DE COMPETENCIAS CONCRETAS)
@@ -1771,5 +1655,52 @@ footer {
         width: 52px;
         height: 52px;
         font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 14px;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+        line-height: 1.15;
+    }
+
+    .hero-subtitle {
+        font-size: 1.25rem;
+    }
+
+    .section {
+        padding: 4rem 1rem;
+    }
+
+    .section-title {
+        font-size: 1.9rem;
+    }
+
+    .project-item {
+        flex: 0 0 calc(100vw - 2.2rem);
+        width: calc(100vw - 2.2rem);
+    }
+
+    .contact-sidebar,
+    .contact-form-panel {
+        padding: 1.6rem 1rem;
+        border-radius: 18px;
+    }
+
+    .contact-list {
+        gap: 1.1rem;
+    }
+
+    .contact-list-value {
+        font-size: 0.88rem;
+        word-break: break-word;
+    }
+
+    .whatsapp-tooltip {
+        display: none !important;
     }
 }
