@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#030712" />
+      <stop offset="100%" stop-color="#0a1128" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  
+  <!-- Contenedor Base con Borde Neón -->
+  <rect x="6" y="6" width="116" height="116" rx="28" fill="url(#bgGrad)" stroke="url(#primaryGrad)" stroke-width="4" />
+  
+  <!-- Icono Central: <ER /> -->
+  <text x="64" y="78" 
+        font-family="'Plus Jakarta Sans', 'Outfit', system-ui, sans-serif" 
+        font-size="44" 
+        font-weight="800" 
+        fill="url(#primaryGrad)" 
+        text-anchor="middle"
+        filter="url(#glow)"
+        letter-spacing="-1">ER</text>
+  
+  <!-- Puntos decorativos estilo código -->
+  <circle cx="28" cy="28" r="4" fill="#06b6d4" opacity="0.8" />
+  <circle cx="100" cy="100" r="4" fill="#a855f7" opacity="0.8" />
+</svg>

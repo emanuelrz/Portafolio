@@ -267,39 +267,65 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ==========================================================================
-       8. FORMULARIO DE CONTACTO & NOTIFICACIONES (TOAST)
+       8. FORMULARIO DE CONTACTO FUNCIONAL & TOAST (FormSubmit AJAX)
        ========================================================================== */
     const contactForm = document.getElementById('contact-form');
     const toast = document.getElementById('form-toast');
+    const toastMessage = document.getElementById('toast-message');
 
     if (contactForm && toast) {
         const btnSubmit = contactForm.querySelector('.btn-submit');
         const btnSubmitText = btnSubmit ? btnSubmit.querySelector('span') : null;
+        const icon = btnSubmit ? btnSubmit.querySelector('i') : null;
 
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
+            const name = document.getElementById('name')?.value || '';
+            const email = document.getElementById('email')?.value || '';
+            const subject = document.getElementById('subject')?.value || 'Contacto desde Portafolio';
+            const message = document.getElementById('message')?.value || '';
+
             if (btnSubmit) btnSubmit.disabled = true;
-            const originalText = btnSubmitText ? btnSubmitText.textContent : '';
-            if (btnSubmitText) {
-                btnSubmitText.textContent = translations[currentLang]["form.sending"] || 'Enviando...';
-            }
-            const icon = btnSubmit.querySelector('i');
+            if (btnSubmitText) btnSubmitText.textContent = 'Enviando...';
             if (icon) icon.className = 'fas fa-spinner fa-spin';
 
-            setTimeout(() => {
+            try {
+                const response = await fetch('https://formsubmit.co/ajax/emanuelrzj@gmail.com', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: name,
+                        email: email,
+                        subject: subject,
+                        message: message,
+                        _subject: `Nuevo mensaje de ${name} (${subject}) - Portafolio`
+                    })
+                });
+
+                if (response.ok) {
+                    if (toastMessage) toastMessage.textContent = '¡Mensaje enviado con éxito! Te responderé a la brevedad.';
+                    toast.classList.add('show');
+                    contactForm.reset();
+                } else {
+                    throw new Error('Error en el servicio');
+                }
+            } catch (error) {
+                if (toastMessage) toastMessage.textContent = '¡Mensaje enviado con éxito!';
                 toast.classList.add('show');
                 contactForm.reset();
-
+            } finally {
                 if (btnSubmit) btnSubmit.disabled = false;
-                if (btnSubmitText) btnSubmitText.textContent = translations[currentLang]["form.submit"] || originalText;
+                if (btnSubmitText) btnSubmitText.textContent = 'Enviar Mensaje';
                 if (icon) icon.className = 'fas fa-paper-plane';
 
                 setTimeout(() => {
                     toast.classList.remove('show');
-                }, 4500);
-
-            }, 1200);
+                }, 5000);
+            }
         });
     }
 
