@@ -4,4 +4,4 @@
 :HL["/Portafolio/project_kanso.png","image"]
 :HL["/Portafolio/project_muebleria.png","image"]
 :HL["/Portafolio/project1.png","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"oIbuXh43KwB7h2ivJbFzV"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"XqPvTPjjONjj9xxr-Nb59"}
