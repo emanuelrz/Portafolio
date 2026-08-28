@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { buttonVariants } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
+import { cn, getAssetPath } from '@/lib/utils'
 import { ArrowUpRight } from 'lucide-react'
 
 const links = [
@@ -15,7 +15,7 @@ export function Navbar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-6">
         <a href="#" className="flex items-center gap-3 transition-opacity hover:opacity-90" aria-label="Inicio">
           <Image
-            src="/logo.png"
+            src={getAssetPath('/logo.png')}
             alt="EJuRz"
             width={85}
             height={55}

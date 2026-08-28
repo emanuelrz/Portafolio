@@ -1,4 +1,5 @@
 import { ArrowUpRight } from 'lucide-react'
+import { getAssetPath } from '@/lib/utils'
 
 const projects = [
   {
@@ -60,7 +61,7 @@ export function Projects() {
             >
               <div className="relative aspect-[16/10] overflow-hidden bg-secondary">
                 <img
-                  src={p.image || '/placeholder.svg'}
+                  src={getAssetPath(p.image) || '/placeholder.svg'}
                   alt={`Vista previa del proyecto ${p.title}`}
                   className="h-full w-full object-cover grayscale transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0"
                 />

@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { buttonVariants } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
+import { cn, getAssetPath } from '@/lib/utils'
 import { ArrowUpRight, Download } from 'lucide-react'
 
 export function Hero() {
@@ -34,7 +34,7 @@ export function Hero() {
                 <ArrowUpRight className="size-4" />
               </a>
               <a
-                href="/cv_emanuel_ramirez.pdf"
+                href={getAssetPath('/cv_emanuel_ramirez.pdf')}
                 download="CV_Emanuel_Julian_Ramirez.pdf"
                 className={cn(
                   buttonVariants({ variant: 'outline', size: 'lg' }),
@@ -52,7 +52,7 @@ export function Hero() {
             <div className="pointer-events-none absolute right-0 top-1/2 aspect-square w-[110%] -translate-y-1/2 rounded-full border border-border/60" />
             <div className="relative mx-auto aspect-[3/4] w-full max-w-sm overflow-hidden rounded-2xl border border-border/80 shadow-2xl">
               <Image
-                src="/profile.jpg"
+                src={getAssetPath('/profile.jpg')}
                 alt="Emanuel Julian Ramirez, Desarrollador Full-Stack"
                 fill
                 priority
