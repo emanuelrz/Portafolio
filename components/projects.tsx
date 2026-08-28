@@ -3,6 +3,15 @@ import { getAssetPath } from '@/lib/utils'
 
 const projects = [
   {
+    title: 'KANSO — Gym Management Platform',
+    category: 'Full-Stack · SaaS & Dashboard',
+    tags: 'React.js · Node.js · Web APIs · Tailwind CSS',
+    desc: 'Plataforma SaaS integral orientada a la gestión ágil de gimnasios y centros de entrenamiento: administración de membresías, control de asistencias, punto de venta (POS) y métricas financieras.',
+    image: '/project_kanso.png',
+    github: 'https://github.com/emanuelrz',
+    demo: null,
+  },
+  {
     title: 'Mueblería Hermanos Jota',
     category: 'Frontend & UI · Showroom Digital',
     tags: 'React 18 · Vite · Tailwind CSS',
@@ -53,7 +62,7 @@ export function Projects() {
           </a>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((p) => (
             <article
               key={p.title}
