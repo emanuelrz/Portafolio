@@ -7,7 +7,7 @@ const projects = [
     category: 'Full-Stack · SaaS & Dashboard',
     tags: 'React.js · Node.js · Web APIs · Tailwind CSS',
     desc: 'Plataforma SaaS integral orientada a la gestión ágil de gimnasios y centros de entrenamiento: administración de membresías, control de asistencias, punto de venta (POS) y métricas financieras.',
-    image: '/project_kanso.png',
+    image: '/project_kanso.jpg',
     github: 'https://github.com/emanuelrz',
     demo: null,
   },
