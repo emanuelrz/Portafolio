@@ -34,9 +34,9 @@ const projects: Project[] = [
     image: '/project_kanso.jpg',
     images: [
       '/project_kanso.jpg',
-      '/kanso_dashboard.png',
-      '/kanso_profiles.png',
       '/kanso_login.png',
+      '/kanso_profiles.png',
+      '/kanso_dashboard.png',
     ],
     overview:
       'Plataforma SaaS integral orientada a la gestión ágil de gimnasios y centros de entrenamiento. Diseñada con un enfoque centrado en la velocidad operativa, resuelve la administración de membresías, control de asistencias, punto de venta (POS) para kiosco y generación de métricas financieras.',
@@ -203,14 +203,14 @@ export function Projects() {
 
             {/* Galería de Imágenes del Proyecto */}
             <div className="mt-5 space-y-3">
-              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-border bg-secondary shadow-md">
+              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-border bg-black/40 flex items-center justify-center shadow-md">
                 <img
                   src={
                     getAssetPath(selectedProject.images[activeImageIndex] || selectedProject.image) ||
                     '/placeholder.svg'
                   }
                   alt={`${selectedProject.title} imagen ${activeImageIndex + 1}`}
-                  className="h-full w-full object-cover transition-all duration-300"
+                  className="h-full w-full object-contain transition-all duration-300"
                 />
 
                 {/* Flechas de Navegación si hay más de 1 foto */}
@@ -225,7 +225,7 @@ export function Projects() {
                           prev === 0 ? selectedProject.images.length - 1 : prev - 1,
                         )
                       }}
-                      className="absolute left-3 top-1/2 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-black/60 text-white backdrop-blur-sm transition-transform hover:scale-110"
+                      className="absolute left-3 top-1/2 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-black/70 text-white shadow-lg backdrop-blur-sm transition-transform hover:scale-110"
                     >
                       <ChevronLeft className="size-4" />
                     </button>
@@ -238,7 +238,7 @@ export function Projects() {
                           prev === selectedProject.images.length - 1 ? 0 : prev + 1,
                         )
                       }}
-                      className="absolute right-3 top-1/2 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-black/60 text-white backdrop-blur-sm transition-transform hover:scale-110"
+                      className="absolute right-3 top-1/2 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-black/70 text-white shadow-lg backdrop-blur-sm transition-transform hover:scale-110"
                     >
                       <ChevronRight className="size-4" />
                     </button>
