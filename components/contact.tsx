@@ -28,7 +28,7 @@ function WhatsappIcon({ className }: { className?: string }) {
 
 const contactInfo = [
   { icon: Mail, text: 'emanuelrzj@gmail.com', href: 'mailto:emanuelrzj@gmail.com' },
-  { icon: WhatsappIcon, text: 'WhatsApp (+54 3447 402877)', href: 'https://wa.me/543447402877?text=Hola%20Emanuel,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20contactarte' },
+  { icon: WhatsappIcon, text: 'WhatsApp · Mensaje directo', href: 'https://wa.me/543447402877?text=Hola%20Emanuel,%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20contactarte' },
   { icon: MapPin, text: 'Entre Ríos, Argentina · Disponible remoto', href: undefined },
 ]
 
