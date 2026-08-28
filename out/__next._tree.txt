@@ -1,7 +1,7 @@
-:HL["/Portafolio/_next/static/chunks/3ezet2wbwmi-r.css","style"]
+:HL["/Portafolio/_next/static/chunks/1mbriu3a1k-l_.css","style"]
 :HL["/Portafolio/_next/static/media/797e433ab948586e-s.p.0r6juujl39pe6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/Portafolio/_next/static/media/caa3a2e1cccd8315-s.p.0wgildi0cnwt9.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/Portafolio/project_kanso.jpg","image"]
 :HL["/Portafolio/project_muebleria.png","image"]
 :HL["/Portafolio/project1.png","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"PqDuvZol_H4Y6S6KuBc7r"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}},"staleTime":300,"buildId":"qry77PiBRp3gAVixcLIX1"}
