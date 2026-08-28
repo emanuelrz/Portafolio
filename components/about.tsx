@@ -79,7 +79,7 @@ export function About() {
             Desarrollo con enfoque en código limpio y soluciones reales
           </h2>
           <p className="mt-4 leading-relaxed text-muted-foreground">
-            Tengo 23 años y soy <strong>Emanuel Julian Ramirez</strong>, Técnico Universitario en Programación egresado de la <strong>UTN FRCU</strong> y actualmente especializándome en desarrollo Web Full-Stack con el <strong>Stack MERN</strong> en el <strong>ITBA & Santander</strong>. Me apasiona diseñar sistemas eficientes, estructurados bajo buenas prácticas de ingeniería de software y orientados a crear productos digitales confiables y escalables.
+            Me llamo Emanuel, tengo 23 años, soy <strong>Técnico Universitario en Programación</strong> egresado de la <strong>UTN FRCU</strong> y actualmente especializándome en desarrollo Web Full-Stack con el <strong>Stack MERN</strong> en el <strong>ITBA & Santander</strong>. Me apasiona diseñar sistemas eficientes, estructurados bajo buenas prácticas de ingeniería de software y orientados a crear productos digitales confiables y escalables.
           </p>
         </div>
 
