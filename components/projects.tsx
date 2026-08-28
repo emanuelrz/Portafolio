@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { ArrowUpRight, X, CheckCircle2, Globe, ExternalLink } from 'lucide-react'
+import { ArrowUpRight, X, CheckCircle2, Globe, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react'
 import { getAssetPath } from '@/lib/utils'
 
 function GithubIcon({ className }: { className?: string }) {
@@ -18,6 +18,7 @@ interface Project {
   tags: string
   stackList: string[]
   image: string
+  images: string[]
   overview: string
   highlights: string[]
   github: string | null
@@ -31,12 +32,19 @@ const projects: Project[] = [
     tags: 'React.js · Node.js · APIs',
     stackList: ['React.js', 'Node.js', 'Web APIs', 'Tailwind CSS', 'Chart.js', 'TypeScript'],
     image: '/project_kanso.jpg',
+    images: [
+      '/project_kanso.jpg',
+      '/kanso_dashboard.png',
+      '/kanso_profiles.png',
+      '/kanso_login.png',
+    ],
     overview:
       'Plataforma SaaS integral orientada a la gestión ágil de gimnasios y centros de entrenamiento. Diseñada con un enfoque centrado en la velocidad operativa, resuelve la administración de membresías, control de asistencias, punto de venta (POS) para kiosco y generación de métricas financieras.',
     highlights: [
       'Panel general con métricas de facturación y evolución financiera por períodos.',
       'Administración de socios con control de asistencias y alertas de vencimiento.',
       'Punto de venta (POS) integrado para kiosco y suplementos deportivos.',
+      'Autenticación multiperfil (Administración, Recepción, Coach) con control por PIN.',
       'Diseño responsivo optimizado para alta velocidad y uso táctil en mostrador.',
     ],
     github: 'https://github.com/emanuelrz',
@@ -48,6 +56,7 @@ const projects: Project[] = [
     tags: 'React · Vite · Tailwind CSS',
     stackList: ['React 18', 'Vite', 'Tailwind CSS', 'Lucide Icons', 'Responsive Design'],
     image: '/project_muebleria.png',
+    images: ['/project_muebleria.png'],
     overview:
       'Showroom digital interactivo y catálogo de mobiliario artesanal. Cuenta con curaduría de colecciones, cálculo de presupuestos en tiempo real, agendador de visitas a taller y cotizador directo con integración a WhatsApp.',
     highlights: [
@@ -65,6 +74,7 @@ const projects: Project[] = [
     tags: 'React.js · Node.js · SQL',
     stackList: ['React.js', 'Node.js', 'Express.js', 'SQL / Bases de Datos', 'POO'],
     image: '/project1.png',
+    images: ['/project1.png'],
     overview:
       'Plataforma web integral desarrollada para la Municipalidad de San José para centralizar y digitalizar la postulación laboral en la ciudad. Construida bajo arquitectura Cliente/Servidor, programación orientada a objetos (POO) y base de datos relacional.',
     highlights: [
@@ -80,6 +90,12 @@ const projects: Project[] = [
 
 export function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
+  const [activeImageIndex, setActiveImageIndex] = useState(0)
+
+  const handleOpenProject = (project: Project) => {
+    setSelectedProject(project)
+    setActiveImageIndex(0)
+  }
 
   // Cerrar con tecla Escape y bloquear scroll de fondo
   useEffect(() => {
@@ -122,7 +138,7 @@ export function Projects() {
             <button
               key={p.title}
               type="button"
-              onClick={() => setSelectedProject(p)}
+              onClick={() => handleOpenProject(p)}
               className="group relative flex flex-col overflow-hidden rounded-xl border border-border bg-card text-left transition-all duration-300 hover:border-foreground/40 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-foreground/20"
             >
               <div className="aspect-[4/3] w-full overflow-hidden bg-secondary">
@@ -185,13 +201,74 @@ export function Projects() {
               </h3>
             </div>
 
-            {/* Imagen del Proyecto */}
-            <div className="mt-5 aspect-[16/10] w-full overflow-hidden rounded-xl border border-border bg-secondary shadow-md">
-              <img
-                src={getAssetPath(selectedProject.image) || '/placeholder.svg'}
-                alt={selectedProject.title}
-                className="h-full w-full object-cover"
-              />
+            {/* Galería de Imágenes del Proyecto */}
+            <div className="mt-5 space-y-3">
+              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-border bg-secondary shadow-md">
+                <img
+                  src={
+                    getAssetPath(selectedProject.images[activeImageIndex] || selectedProject.image) ||
+                    '/placeholder.svg'
+                  }
+                  alt={`${selectedProject.title} imagen ${activeImageIndex + 1}`}
+                  className="h-full w-full object-cover transition-all duration-300"
+                />
+
+                {/* Flechas de Navegación si hay más de 1 foto */}
+                {selectedProject.images.length > 1 && (
+                  <>
+                    <button
+                      type="button"
+                      aria-label="Imagen anterior"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        setActiveImageIndex((prev) =>
+                          prev === 0 ? selectedProject.images.length - 1 : prev - 1,
+                        )
+                      }}
+                      className="absolute left-3 top-1/2 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-black/60 text-white backdrop-blur-sm transition-transform hover:scale-110"
+                    >
+                      <ChevronLeft className="size-4" />
+                    </button>
+                    <button
+                      type="button"
+                      aria-label="Siguiente imagen"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        setActiveImageIndex((prev) =>
+                          prev === selectedProject.images.length - 1 ? 0 : prev + 1,
+                        )
+                      }}
+                      className="absolute right-3 top-1/2 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-black/60 text-white backdrop-blur-sm transition-transform hover:scale-110"
+                    >
+                      <ChevronRight className="size-4" />
+                    </button>
+                  </>
+                )}
+              </div>
+
+              {/* Miniaturas */}
+              {selectedProject.images.length > 1 && (
+                <div className="flex gap-2 overflow-x-auto pb-1">
+                  {selectedProject.images.map((img, idx) => (
+                    <button
+                      key={img}
+                      type="button"
+                      onClick={() => setActiveImageIndex(idx)}
+                      className={`relative aspect-[16/10] h-14 shrink-0 overflow-hidden rounded-lg border transition-all ${
+                        activeImageIndex === idx
+                          ? 'border-foreground ring-2 ring-foreground/20'
+                          : 'border-border/60 opacity-60 hover:opacity-100'
+                      }`}
+                    >
+                      <img
+                        src={getAssetPath(img) || '/placeholder.svg'}
+                        alt={`Miniatura ${idx + 1}`}
+                        className="h-full w-full object-cover"
+                      />
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
 
             {/* Descripción */}
