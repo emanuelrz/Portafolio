@@ -56,11 +56,14 @@ const projects: Project[] = [
     tags: 'React · Vite · Tailwind CSS',
     stackList: ['React 18', 'Vite', 'Tailwind CSS', 'Lucide Icons', 'Responsive Design'],
     image: '/project_muebleria.png',
-    images: ['/project_muebleria.png'],
+    images: [
+      '/project_muebleria.png',
+      '/project_muebleria_catalogo.png',
+    ],
     overview:
-      'Showroom digital interactivo y catálogo de mobiliario artesanal. Cuenta con curaduría de colecciones, cálculo de presupuestos en tiempo real, agendador de visitas a taller y cotizador directo con integración a WhatsApp.',
+      'Showroom digital interactivo y catálogo de mobiliario artesanal. Cuenta con curaduría de colecciones, catálogo interactivo con filtros dinámicos, cálculo de presupuestos en tiempo real, agendador de visitas a taller y cotizador directo con integración a WhatsApp.',
     highlights: [
-      'Catálogo interactivo con filtrado dinámico de mobiliario.',
+      'Catálogo interactivo con filtrado dinámico de mobiliario y buscador en tiempo real.',
       'Cotizador de presupuestos en tiempo real según personalización.',
       'Integración directa a WhatsApp para agendar visitas a taller.',
       'Diseño editorial moderno de alta estética y navegación fluida.',
