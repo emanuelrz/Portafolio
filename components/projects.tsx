@@ -55,9 +55,8 @@ const projects: Project[] = [
     category: 'Frontend & UI · Showroom Digital',
     tags: 'React · Vite · Tailwind CSS',
     stackList: ['React 18', 'Vite', 'Tailwind CSS', 'Lucide Icons', 'Responsive Design'],
-    image: '/project_muebleria.png',
+    image: '/project_muebleria_catalogo.png',
     images: [
-      '/project_muebleria.png',
       '/project_muebleria_catalogo.png',
     ],
     overview:
