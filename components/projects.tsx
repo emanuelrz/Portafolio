@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { ArrowUpRight, X, CheckCircle2, Globe, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react'
+import { ArrowUpRight, X, CheckCircle2, Globe, ExternalLink, ChevronLeft, ChevronRight, Building2 } from 'lucide-react'
 import { getAssetPath } from '@/lib/utils'
 
 function GithubIcon({ className }: { className?: string }) {
@@ -93,8 +93,8 @@ const projects: Project[] = [
     category: 'Full-Stack · Gestión IT',
     tags: 'React.js · Node.js · SQL',
     stackList: ['React.js', 'Node.js', 'Express.js', 'SQL / Bases de Datos', 'POO'],
-    image: '/project1.png',
-    images: ['/project1.png'],
+    image: '',
+    images: [],
     overview:
       'Plataforma web integral desarrollada para la Municipalidad de San José para centralizar y digitalizar la postulación laboral en la ciudad. Construida bajo arquitectura Cliente/Servidor, programación orientada a objetos (POO) y base de datos relacional.',
     highlights: [
@@ -161,12 +161,23 @@ export function Projects() {
               onClick={() => handleOpenProject(p)}
               className="group relative flex flex-col overflow-hidden rounded-xl border border-border bg-card text-left transition-all duration-300 hover:border-foreground/40 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-foreground/20"
             >
-              <div className="aspect-[4/3] w-full overflow-hidden bg-secondary">
-                <img
-                  src={getAssetPath(p.image) || '/placeholder.svg'}
-                  alt={`Vista previa del proyecto ${p.title}`}
-                  className="h-full w-full object-cover grayscale transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0"
-                />
+              <div className="flex aspect-[4/3] w-full items-center justify-center overflow-hidden bg-secondary/50">
+                {p.image ? (
+                  <img
+                    src={getAssetPath(p.image) || '/placeholder.svg'}
+                    alt={`Vista previa del proyecto ${p.title}`}
+                    className="h-full w-full object-cover grayscale transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0"
+                  />
+                ) : (
+                  <div className="flex flex-col items-center justify-center gap-2.5 p-6 text-center text-muted-foreground transition-colors group-hover:text-foreground">
+                    <div className="flex size-12 items-center justify-center rounded-xl border border-border bg-card shadow-sm transition-transform group-hover:scale-110">
+                      <Building2 className="size-6 text-muted-foreground transition-colors group-hover:text-foreground" />
+                    </div>
+                    <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground/80">
+                      Sistema Web · SQL
+                    </span>
+                  </div>
+                )}
               </div>
               <div className="flex w-full items-end justify-between gap-3 p-5">
                 <div>
@@ -221,72 +232,86 @@ export function Projects() {
               </h3>
             </div>
 
-            {/* Galería de Imágenes del Proyecto */}
+            {/* Galería de Imágenes o Banner del Proyecto */}
             <div className="mt-5 space-y-3">
-              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-border bg-black/40 flex items-center justify-center shadow-md">
-                <img
-                  src={
-                    getAssetPath(selectedProject.images[activeImageIndex] || selectedProject.image) ||
-                    '/placeholder.svg'
-                  }
-                  alt={`${selectedProject.title} imagen ${activeImageIndex + 1}`}
-                  className="h-full w-full object-contain transition-all duration-300"
-                />
+              {selectedProject.images && selectedProject.images.length > 0 ? (
+                <>
+                  <div className="relative flex aspect-[16/10] w-full items-center justify-center overflow-hidden rounded-xl border border-border bg-black/40 shadow-md">
+                    <img
+                      src={
+                        getAssetPath(selectedProject.images[activeImageIndex] || selectedProject.image) ||
+                        '/placeholder.svg'
+                      }
+                      alt={`${selectedProject.title} imagen ${activeImageIndex + 1}`}
+                      className="h-full w-full object-contain transition-all duration-300"
+                    />
 
-                {/* Flechas de Navegación si hay más de 1 foto */}
-                {selectedProject.images.length > 1 && (
-                  <>
-                    <button
-                      type="button"
-                      aria-label="Imagen anterior"
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        setActiveImageIndex((prev) =>
-                          prev === 0 ? selectedProject.images.length - 1 : prev - 1,
-                        )
-                      }}
-                      className="absolute left-3 top-1/2 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-black/70 text-white shadow-lg backdrop-blur-sm transition-transform hover:scale-110"
-                    >
-                      <ChevronLeft className="size-4" />
-                    </button>
-                    <button
-                      type="button"
-                      aria-label="Siguiente imagen"
-                      onClick={(e) => {
-                        e.stopPropagation()
-                        setActiveImageIndex((prev) =>
-                          prev === selectedProject.images.length - 1 ? 0 : prev + 1,
-                        )
-                      }}
-                      className="absolute right-3 top-1/2 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-black/70 text-white shadow-lg backdrop-blur-sm transition-transform hover:scale-110"
-                    >
-                      <ChevronRight className="size-4" />
-                    </button>
-                  </>
-                )}
-              </div>
+                    {/* Flechas de Navegación si hay más de 1 foto */}
+                    {selectedProject.images.length > 1 && (
+                      <>
+                        <button
+                          type="button"
+                          aria-label="Imagen anterior"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            setActiveImageIndex((prev) =>
+                              prev === 0 ? selectedProject.images.length - 1 : prev - 1,
+                            )
+                          }}
+                          className="absolute left-3 top-1/2 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-black/70 text-white shadow-lg backdrop-blur-sm transition-transform hover:scale-110"
+                        >
+                          <ChevronLeft className="size-4" />
+                        </button>
+                        <button
+                          type="button"
+                          aria-label="Siguiente imagen"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            setActiveImageIndex((prev) =>
+                              prev === selectedProject.images.length - 1 ? 0 : prev + 1,
+                            )
+                          }}
+                          className="absolute right-3 top-1/2 flex size-8 -translate-y-1/2 items-center justify-center rounded-full bg-black/70 text-white shadow-lg backdrop-blur-sm transition-transform hover:scale-110"
+                        >
+                          <ChevronRight className="size-4" />
+                        </button>
+                      </>
+                    )}
+                  </div>
 
-              {/* Miniaturas */}
-              {selectedProject.images.length > 1 && (
-                <div className="flex gap-2 overflow-x-auto pb-1">
-                  {selectedProject.images.map((img, idx) => (
-                    <button
-                      key={img}
-                      type="button"
-                      onClick={() => setActiveImageIndex(idx)}
-                      className={`relative aspect-[16/10] h-14 shrink-0 overflow-hidden rounded-lg border transition-all ${
-                        activeImageIndex === idx
-                          ? 'border-foreground ring-2 ring-foreground/20'
-                          : 'border-border/60 opacity-60 hover:opacity-100'
-                      }`}
-                    >
-                      <img
-                        src={getAssetPath(img) || '/placeholder.svg'}
-                        alt={`Miniatura ${idx + 1}`}
-                        className="h-full w-full object-cover"
-                      />
-                    </button>
-                  ))}
+                  {/* Miniaturas */}
+                  {selectedProject.images.length > 1 && (
+                    <div className="flex gap-2 overflow-x-auto pb-1">
+                      {selectedProject.images.map((img, idx) => (
+                        <button
+                          key={img}
+                          type="button"
+                          onClick={() => setActiveImageIndex(idx)}
+                          className={`relative aspect-[16/10] h-14 shrink-0 overflow-hidden rounded-lg border transition-all ${
+                            activeImageIndex === idx
+                              ? 'border-foreground ring-2 ring-foreground/20'
+                              : 'border-border/60 opacity-60 hover:opacity-100'
+                          }`}
+                        >
+                          <img
+                            src={getAssetPath(img) || '/placeholder.svg'}
+                            alt={`Miniatura ${idx + 1}`}
+                            className="h-full w-full object-cover"
+                          />
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </>
+              ) : (
+                <div className="flex aspect-[16/10] w-full flex-col items-center justify-center gap-3 rounded-xl border border-border bg-secondary/30 p-8 text-center shadow-md">
+                  <div className="flex size-16 items-center justify-center rounded-2xl border border-border bg-card shadow-sm">
+                    <Building2 className="size-8 text-foreground" />
+                  </div>
+                  <div>
+                    <p className="text-base font-bold text-foreground">Plataforma de Gestión Interna</p>
+                    <p className="mt-1 text-xs text-muted-foreground">Municipalidad de San José · Base de Datos Relacional SQL</p>
+                  </div>
                 </div>
               )}
             </div>
