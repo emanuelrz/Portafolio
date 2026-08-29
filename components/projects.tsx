@@ -72,6 +72,24 @@ const projects: Project[] = [
     demo: 'https://emanuelrz.github.io/muebleria-hnosj/',
   },
   {
+    title: 'Dash Burger — Smash & Dash',
+    category: 'Frontend & UI · Fast Food Landing',
+    tags: 'Tailwind · Brutalist · Vercel',
+    stackList: ['Tailwind CSS', 'JavaScript', 'HTML5', 'Brutalist UI', 'Vercel Deployment'],
+    image: '/project_burger.jpg',
+    images: ['/project_burger.jpg'],
+    overview:
+      'Landing page de alto impacto visual con diseño brutalista moderno para hamburguesería artesanal. Presenta un menú interactivo, filosofía "La ciencia del Smash", locaciones en Colón y San José, y accesos directos a pedidos y delivery.',
+    highlights: [
+      'Estética brutalista con tipografías bold, stickers y animaciones de marquesina.',
+      'Sección de menú con productos destacados, descripciones y precios.',
+      'Información de sucursales con accesos directos para retiro y delivery.',
+      'Optimizada para máxima velocidad de carga y desplegada en Vercel.',
+    ],
+    github: 'https://github.com/emanuelrz',
+    demo: 'https://burguer-blush.vercel.app/',
+  },
+  {
     title: 'Bolsa de Empleo Municipal',
     category: 'Full-Stack · Gestión IT',
     tags: 'React.js · Node.js · SQL',
@@ -136,7 +154,7 @@ export function Projects() {
         </div>
 
         {/* Cuadrícula de Proyectos (Tarjetas Minimalistas) */}
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {projects.map((p) => (
             <button
               key={p.title}
