@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import { buttonVariants } from '@/components/ui/button'
 import { cn, getAssetPath } from '@/lib/utils'
@@ -10,10 +12,30 @@ const links = [
 ]
 
 export function Navbar() {
+  const handleSmoothScroll = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    e.preventDefault()
+    if (href === '#') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+      return
+    }
+    const target = document.querySelector(href)
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
     <header className="absolute inset-x-0 top-0 z-50">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-6">
-        <a href="#" className="flex items-center gap-3 transition-opacity hover:opacity-90" aria-label="Inicio">
+        <a
+          href="#"
+          onClick={(e) => handleSmoothScroll(e, '#')}
+          className="flex items-center gap-3 transition-opacity hover:opacity-90"
+          aria-label="Inicio"
+        >
           <Image
             src={getAssetPath('/logo.png')}
             alt="EJuRz"
@@ -34,6 +56,7 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
+              onClick={(e) => handleSmoothScroll(e, link.href)}
               className="text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground transition-colors hover:text-foreground"
             >
               {link.label}
@@ -43,6 +66,7 @@ export function Navbar() {
 
         <a
           href="#contacto"
+          onClick={(e) => handleSmoothScroll(e, '#contacto')}
           className={cn(
             buttonVariants(),
             'rounded-full text-xs font-medium uppercase tracking-[0.12em]',

@@ -1,9 +1,22 @@
+'use client'
+
 import Image from 'next/image'
 import { buttonVariants } from '@/components/ui/button'
 import { cn, getAssetPath } from '@/lib/utils'
 import { ArrowUpRight, Download } from 'lucide-react'
 
 export function Hero() {
+  const handleSmoothScroll = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    e.preventDefault()
+    const target = document.querySelector(href)
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
     <section id="inicio" className="relative overflow-hidden pb-16 pt-28">
       <div className="mx-auto max-w-6xl px-5">
@@ -25,6 +38,7 @@ export function Hero() {
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <a
                 href="#proyectos"
+                onClick={(e) => handleSmoothScroll(e, '#proyectos')}
                 className={cn(
                   buttonVariants({ size: 'lg' }),
                   'rounded-none text-xs font-semibold uppercase tracking-[0.12em]',
@@ -68,9 +82,13 @@ export function Hero() {
               <p className="font-sans text-2xl font-bold uppercase tracking-tight">
                 Nuevos Proyectos
               </p>
-              <p className="flex items-center justify-end gap-1 text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
+              <a
+                href="#contacto"
+                onClick={(e) => handleSmoothScroll(e, '#contacto')}
+                className="flex items-center justify-end gap-1 text-[10px] uppercase tracking-[0.25em] text-muted-foreground transition-colors hover:text-foreground"
+              >
                 Contacto <ArrowUpRight className="size-3" />
-              </p>
+              </a>
             </div>
           </div>
         </div>
