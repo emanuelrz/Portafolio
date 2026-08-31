@@ -14,10 +14,38 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Emanuel — Full-Stack Developer',
+  title: 'Emanuel Julian Ramirez — Full-Stack Developer',
   description:
-    'Portafolio de Emanuel, desarrollador Full-Stack especializado en Java y Spring. Construyendo sistemas limpios, escalables e intuitivos.',
-  generator: 'v0.app',
+    'Portafolio de Emanuel Julian Ramirez. Técnico Universitario en Programación (UTN FRCU) y Especialista en Desarrollo Web Full-Stack (ITBA & Santander).',
+  metadataBase: new URL('https://emanuelrz.github.io/Portafolio'),
+  openGraph: {
+    title: 'Emanuel Julian Ramirez — Full-Stack Developer',
+    description:
+      'Técnico Universitario en Programación (UTN FRCU) y Especialista en Desarrollo Web Full-Stack (ITBA & Santander). Construyo sistemas robustos y soluciones digitales.',
+    url: 'https://emanuelrz.github.io/Portafolio/',
+    siteName: 'Emanuel Ramirez · Portfolio',
+    images: [
+      {
+        url: 'https://emanuelrz.github.io/Portafolio/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'FULL-STACK DEVELOPER — Emanuel Julian Ramirez',
+      },
+    ],
+    locale: 'es_AR',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Emanuel Julian Ramirez — Full-Stack Developer',
+    description:
+      'Técnico Universitario en Programación (UTN FRCU) y Especialista en Desarrollo Web Full-Stack (ITBA & Santander).',
+    images: ['https://emanuelrz.github.io/Portafolio/og-image.png'],
+  },
+  icons: {
+    icon: '/logo.png',
+    apple: '/logo.png',
+  },
 }
 
 export const viewport: Viewport = {
